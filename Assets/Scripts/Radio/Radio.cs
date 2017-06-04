@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Radio : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _playList;
+    [SerializeField] private Song[] _playList;
     [SerializeField] private int _songCurrentlyPlaying;
 
     public void StartPlayingSong()
