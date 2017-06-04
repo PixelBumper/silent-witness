@@ -24,10 +24,12 @@ public class MovingWalkway : MonoBehaviour
 
 	private void OnTriggerStay(Collider collider)
 	{
-
 		_timepassed += Time.deltaTime;
-		collider.transform.position += transform.forward * Speed * Time.deltaTime;
 		_renderer.material.SetTextureOffset("_MainTex", new Vector2(0, _timepassed));
-		
+		if (collider.gameObject.layer == LayerMask.NameToLayer("Character&Monster"))
+		{
+			collider.transform.position += transform.forward * Speed * Time.deltaTime;
+		}
+
 	}
 }
