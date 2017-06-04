@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainController : MonoBehaviour {
+	public static readonly String MainControllerName="MainController";
 	private static MainController mainController;
 
 	private string currentSceneName;
