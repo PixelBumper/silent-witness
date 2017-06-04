@@ -37,8 +37,20 @@ public class CharacterMusicController : MonoBehaviour
         _audioSource.loop = false;
         _previousPosition = transform.position;
 
-        _remainingPlayingTime = MusicLength;
+        _remainingPlayingTime = Time.time % _distanceReference.SecondsPerPortion;
         UpdateSoundProperties();
+    }
+
+    private void OnEnable()
+    {
+        _remainingPlayingTime = Time.time % _distanceReference.SecondsPerPortion;
+        UpdateSoundProperties();
+    }
+
+    private void OnDisable()
+    {
+        _audioSource.Stop();
+        _remainingPlayingTime = 0f;
     }
 
     private void Update()
