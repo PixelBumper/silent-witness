@@ -81,4 +81,10 @@ public class CharacterMusicController : MonoBehaviour
     {
         return Mathf.Abs(referenceAxis - actualAxis);
     }
+
+    public void ToggleMute()
+    {
+        enabled = !enabled;
+        _audioSource.enabled = enabled;
+    }
 }
