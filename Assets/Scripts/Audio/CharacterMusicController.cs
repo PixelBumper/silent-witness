@@ -71,4 +71,10 @@ public class CharacterMusicController : MonoBehaviour
         _previousPosition = transform.position;
         _previousScale = transform.localScale;
     }
+    
+    public void ToggleMute()
+    {
+        enabled = !enabled;
+        _audioSource.enabled = enabled;
+    }
 }
