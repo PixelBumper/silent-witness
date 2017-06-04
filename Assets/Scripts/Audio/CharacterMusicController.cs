@@ -59,12 +59,12 @@ public class CharacterMusicController : MonoBehaviour
         _audioSource.pitch = _lastTempo;
         _audioSource.volume = volumeScale;
 
-        _remainingPlayingTime -= previousSpacingSeconds - _lastPlayingTime; 
+        _remainingPlayingTime -= previousSpacingSeconds - _lastPlayingTime;
         while (_remainingPlayingTime < 0)
         {
             _remainingPlayingTime += _lastPlayingTime;
         }
-        
+
         _previousPosition = transform.position;
         _previousScale = transform.localScale;
     }
