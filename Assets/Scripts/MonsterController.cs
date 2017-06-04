@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(AudioSource), typeof(Renderer))]
 public class MonsterController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSource;
 
     private Renderer _renderer;
 
@@ -14,10 +12,8 @@ public class MonsterController : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public AudioClip UnGrabSound;
 
-    public AudioClip MusicSound;
-
     public Color StartHighlightColor;
-    
+
     public Color EndHighlightColor;
 
     private Color _originalColor;
@@ -32,9 +28,7 @@ public class MonsterController : MonoBehaviour, IPointerEnterHandler, IPointerEx
     void Start()
     {
         _renderer = GetComponent<Renderer>();
-        _audioSource = GetComponent<AudioSource>();
         _audioSource.Stop();
-        _audioSource.clip = MusicSound;
         _originalColor = _renderer.material.color;
     }
 
@@ -69,7 +63,6 @@ public class MonsterController : MonoBehaviour, IPointerEnterHandler, IPointerEx
     private void StartHiglightingAnimation()
     {
         _highlighted = true;
-        
     }
 
     private void StopHighlightAnimation()
