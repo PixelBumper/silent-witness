@@ -220,7 +220,7 @@ MonoBehaviour:
   GrabSound: {fileID: 0}
   UnGrabSound: {fileID: 0}
   MusicSound: {fileID: 0}
-  StartHighlightColor: {r: 0.59472317, g: 0.63059294, b: 0.7352941, a: 0}
+  StartHighlightColor: {r: 0.3897059, g: 0.41784987, b: 0.5, a: 0}
   EndHighlightColor: {r: 0.73664576, g: 0.7822637, b: 0.9191176, a: 0}
   HighlightInterval: 1
   Curve:
