@@ -52,7 +52,7 @@ public class LookInputModule: MonoBehaviour
 
 			}
 		}
-		else
+		else if(previouslyFocused)
 		{
 			var exitHandler = previouslyFocused.GetComponent<IPointerExitHandler>();
 			if (exitHandler != null)
