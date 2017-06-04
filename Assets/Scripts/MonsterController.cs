@@ -20,6 +20,8 @@ public class MonsterController : MonoBehaviour, IPointerEnterHandler, IPointerEx
     
     public Color EndHighlightColor;
 
+    private Color _originalColor;
+
     public float HighlightInterval;
 
     private bool _highlighted;
@@ -33,16 +35,15 @@ public class MonsterController : MonoBehaviour, IPointerEnterHandler, IPointerEx
         _audioSource = GetComponent<AudioSource>();
         _audioSource.Stop();
         _audioSource.clip = MusicSound;
+        _originalColor = _renderer.material.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_highlighted)
-        {
-            float lerp = Mathf.PingPong(Time.time, HighlightInterval) / HighlightInterval;
-            _renderer.material.color = Color.Lerp(StartHighlightColor, EndHighlightColor, lerp);
-        }
+        if (!_highlighted) return;
+        var lerp = Mathf.PingPong(Time.time, HighlightInterval) / HighlightInterval;
+        _renderer.material.color = Color.Lerp(StartHighlightColor, EndHighlightColor, lerp);
     }
 
     public void Grab()
@@ -68,20 +69,24 @@ public class MonsterController : MonoBehaviour, IPointerEnterHandler, IPointerEx
     private void StartHiglightingAnimation()
     {
         _highlighted = true;
+        
     }
 
     private void StopHighlightAnimation()
     {
         _highlighted = false;
+        _renderer.material.color = _originalColor;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Debug.Log("focussing");
         StartHiglightingAnimation();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        Debug.Log("unfocus");
         StopHighlightAnimation();
     }
 }
