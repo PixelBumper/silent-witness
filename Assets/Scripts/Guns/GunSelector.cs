@@ -28,12 +28,63 @@ public class GunSelector : MonoBehaviour
 			_lastSelectTime = Time.time;
 
 			var delta = -(int)Mathf.Sign(Input.mouseScrollDelta.y);
-			
-			_guns[_currentGunIndex].Disable();
-			
-			_currentGunIndex = (_currentGunIndex + _guns.Count + delta) % _guns.Count;
 
-			_guns[_currentGunIndex].Enable();
+			SelectGun((_currentGunIndex + _guns.Count + delta) % _guns.Count);
+
 		}
+
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			SelectGun(0 % _guns.Count);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			SelectGun(1 % _guns.Count);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			SelectGun(2 % _guns.Count);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha4))
+		{
+			SelectGun(3 % _guns.Count);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha5))
+		{
+			SelectGun(4 % _guns.Count);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha6))
+		{
+			SelectGun(5 % _guns.Count);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha7))
+		{
+			SelectGun(6 % _guns.Count);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha8))
+		{
+			SelectGun(7 % _guns.Count);
+		}
+		
+		if (Input.GetKeyDown(KeyCode.Alpha9))
+		{
+			SelectGun(8 % _guns.Count);
+		}
+	}
+
+	private void SelectGun(int gunIndex)
+	{
+		_guns[_currentGunIndex].Disable();
+
+		_currentGunIndex = gunIndex;
+
+		_guns[_currentGunIndex].Enable();
 	}
 }
