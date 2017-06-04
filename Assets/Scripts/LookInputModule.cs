@@ -21,11 +21,9 @@ public class LookInputModule: MonoBehaviour
 	{
 		RaycastHit hit;
 		var ray = _camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
-		Debug.Log("WTF");
 
 		if (Physics.Raycast(ray, out hit))
 		{
-			Debug.Log("Whatching at "+ hit.transform.name);
 			if (previouslyFocused == null)
 			{
 				previouslyFocused = hit.transform;
