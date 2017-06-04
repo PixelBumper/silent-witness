@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class CharacterMusicController : MonoBehaviour
+public class CharacterMusicController : MonoBehaviour, ISilencable
 {
     [SerializeField, Tooltip("Set clip in the audio source, do not modify this audio source externally!")]
     private AudioSource _audioSource;
@@ -89,7 +89,7 @@ public class CharacterMusicController : MonoBehaviour
         _previousScale = transform.localScale;
     }
 
-    public void ToggleMute()
+    public void ToggleSilence()
     {
         enabled = !enabled;
         _audioSource.enabled = enabled;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MuteGun : Gun
+public class SilenceGun : Gun
 {
 	[SerializeField] private int _inputMouseButton = 2;
 	
@@ -18,11 +18,11 @@ public class MuteGun : Gun
 		
 		if (targetedObject != null)
 		{
-			var characterMusicController = targetedObject.GetComponent<CharacterMusicController>();
+			var silencable = targetedObject.GetComponent<ISilencable>();
 
-			if (characterMusicController != null)
+			if (silencable != null)
 			{
-				characterMusicController.ToggleMute();
+				silencable.ToggleSilence();
 			}
 		}
 	}
