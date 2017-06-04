@@ -7,82 +7,76 @@ public class CharacterMusicController : MonoBehaviour, ISilencable
     [SerializeField, Tooltip("Set clip in the audio source, do not modify this audio source externally!")]
     private AudioSource _audioSource;
 
-    private SoundPropertyReference _distanceReference;
-    private float _remainingPlayingTime;
+    protected SoundPropertyReference DistanceReference;
+    protected float RemainingPlayingTime;
     private float _lastPlayingTime;
     private float _lastTempo;
 
     private Vector3 _previousPosition;
     private Vector3 _previousScale;
 
-    private float MusicLength
-    {
-        get { return Mathf.Ceil(_audioSource.clip.length); }
-    }
-
-    private int MusicTotalPortions
-    {
-        get { return Mathf.CeilToInt(MusicLength / _distanceReference.SecondsPerPortion); }
-    }
-
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
-        _distanceReference = GameObject.FindGameObjectWithTag(Tags.SoundPropertyReference)
+        _audioSource.loop = false;
+        DistanceReference = GameObject.FindGameObjectWithTag(Tags.SoundPropertyReference)
             .GetComponent<SoundPropertyReference>();
     }
 
     private void Start()
     {
-        _audioSource.loop = false;
+        _previousScale = transform.localScale;
         _previousPosition = transform.position;
-
-        _remainingPlayingTime = Time.time % _distanceReference.SecondsPerPortion;
-        UpdateSoundProperties();
+        OnEnable();
     }
 
     private void OnEnable()
     {
-        _remainingPlayingTime = Time.time % _distanceReference.SecondsPerPortion;
+        InitializeSong();
+    }
+
+    protected virtual void InitializeSong()
+    {
+        RemainingPlayingTime = Time.time % DistanceReference.SecondsPerPortion;
         UpdateSoundProperties();
     }
 
     private void OnDisable()
     {
         _audioSource.Stop();
-        _remainingPlayingTime = 0f;
+        RemainingPlayingTime = 0f;
     }
 
     private void Update()
     {
-        _remainingPlayingTime = Mathf.Max(_remainingPlayingTime - Time.deltaTime, 0f);
+        RemainingPlayingTime = Mathf.Max(RemainingPlayingTime - Time.deltaTime, 0f);
 
         if (_previousPosition != transform.position || _previousScale != transform.localScale)
         {
             UpdateSoundProperties();
         }
 
-        if (_remainingPlayingTime <= 0)
+        if (RemainingPlayingTime <= 0)
         {
-            _remainingPlayingTime = _lastPlayingTime;
+            RemainingPlayingTime = _lastPlayingTime;
             _audioSource.Play();
         }
     }
 
-    private void UpdateSoundProperties()
+    protected void UpdateSoundProperties()
     {
         var previousSpacingSeconds = _lastPlayingTime;
-        _lastPlayingTime = _distanceReference.GetPeriodInSeconds(transform);
-        _lastTempo = _distanceReference.GetTempoPercentage(transform);
-        var volumeScale = transform.localScale.x / _distanceReference.ScalingToVolumeDivisor;
+        _lastPlayingTime = DistanceReference.GetPeriodInSeconds(transform);
+        _lastTempo = DistanceReference.GetTempoPercentage(transform);
+        var volumeScale = transform.localScale.x / DistanceReference.ScalingToVolumeDivisor;
 
         _audioSource.pitch = _lastTempo;
         _audioSource.volume = volumeScale;
 
-        _remainingPlayingTime -= previousSpacingSeconds - _lastPlayingTime;
-        while (_remainingPlayingTime < 0)
+        RemainingPlayingTime -= previousSpacingSeconds - _lastPlayingTime;
+        while (RemainingPlayingTime < 0)
         {
-            _remainingPlayingTime += _lastPlayingTime;
+            RemainingPlayingTime += _lastPlayingTime;
         }
 
         _previousPosition = transform.position;
