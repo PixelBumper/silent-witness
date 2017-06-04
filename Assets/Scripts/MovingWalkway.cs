@@ -21,7 +21,7 @@ public class MovingWalkway : MonoBehaviour
 	void Update () {
 		
 	}
-
+	
 	private void OnTriggerStay(Collider collider)
 	{
 		_timepassed += Time.deltaTime;
