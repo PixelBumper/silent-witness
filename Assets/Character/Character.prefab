@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114427553788478894}
   - component: {fileID: 54303001998551776}
   - component: {fileID: 82719764207396674}
+  - component: {fileID: 114576557633915320}
+  - component: {fileID: 114492550991315302}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -41,6 +43,7 @@ GameObject:
   - component: {fileID: 20809077700390264}
   - component: {fileID: 81313173231151546}
   - component: {fileID: 124555911941614010}
+  - component: {fileID: 114951766491343124}
   m_Layer: 0
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
@@ -315,6 +318,48 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+--- !u!114 &114492550991315302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556317220317294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b6da372376b452691c3f97ac794f77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputMouseButton: 1
+--- !u!114 &114576557633915320
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556317220317294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9caedd339f7584517b4c841c1d895520, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _range: 30
+  _raycaster: {fileID: 114951766491343124}
+--- !u!114 &114951766491343124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788432073950274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 954d85c62b57946b0a75e59bda02959f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  _forwardOffset: 0.25
+  _length: 100
+  _debug: 1
 --- !u!124 &124555911941614010
 Behaviour:
   m_ObjectHideFlags: 1
