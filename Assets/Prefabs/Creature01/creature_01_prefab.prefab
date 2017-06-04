@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 82765673797359166}
   - component: {fileID: 114176012836737570}
   - component: {fileID: 64591847514073904}
+  - component: {fileID: 114044877659477296}
+  - component: {fileID: 54650446093559376}
   m_Layer: 0
   m_Name: creature_01
   m_TagString: Untagged
@@ -53,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721709467830794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.231167, y: 0.47599533, z: -1.7303758}
+  m_LocalPosition: {x: -2.231167, y: 0.5, z: 0.999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4156909441475058}
@@ -112,6 +114,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1640275740567018}
   m_Mesh: {fileID: 4300000, guid: 3b1becd7d7dcb496faf1ea0cbefbbf77, type: 3}
+--- !u!54 &54650446093559376
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1640275740567018}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &64591847514073904
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -122,8 +139,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 0
-  m_InflateMesh: 0
+  m_Convex: 1
+  m_InflateMesh: 1
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 3b1becd7d7dcb496faf1ea0cbefbbf77, type: 3}
 --- !u!82 &82765673797359166
@@ -135,7 +152,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 59d703082408947b0b9bc5f526fd3483, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -206,6 +223,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114044877659477296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1640275740567018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5937443cb0a9d4bbb8d885ef04f361e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 82765673797359166}
 --- !u!114 &114176012836737570
 MonoBehaviour:
   m_ObjectHideFlags: 1
