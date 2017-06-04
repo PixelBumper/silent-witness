@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 64591847514073904}
   - component: {fileID: 114044877659477296}
   - component: {fileID: 54650446093559376}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: creature_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4105667253718374}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: creature_01_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
