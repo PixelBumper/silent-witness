@@ -24,9 +24,11 @@ GameObject:
   - component: {fileID: 54303001998551776}
   - component: {fileID: 82719764207396674}
   - component: {fileID: 114576557633915320}
-  - component: {fileID: 114492550991315302}
   - component: {fileID: 114149937503324014}
+  - component: {fileID: 114492550991315302}
   - component: {fileID: 114752481639762098}
+  - component: {fileID: 114317919756996188}
+  - component: {fileID: 114407548727235988}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -265,6 +267,34 @@ MonoBehaviour:
   _angularForce: 4
   _breakGrabSensibility: 4
   _releaseMaxVelocity: 2
+--- !u!114 &114317919756996188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556317220317294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497639a863d004c418f5b71c1d1a16df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputMouseButton: 1
+  _speed: 0.5
+  _maximumSize: 3
+--- !u!114 &114407548727235988
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1556317220317294}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3db061466e245c5b664e002b2b0df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputMouseButton: 1
+  _speed: 0.5
+  _minimumSize: 0.25
 --- !u!114 &114427553788478894
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,7 +403,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556317220317294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62b6da372376b452691c3f97ac794f77, type: 3}
   m_Name: 
@@ -409,12 +439,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1556317220317294}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e890f7a2dda44a17bfd7fb00fdfabf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputMouseButton: 2
+  _inputMouseButton: 1
 --- !u!114 &114951766491343124
 MonoBehaviour:
   m_ObjectHideFlags: 1
