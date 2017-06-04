@@ -4,6 +4,7 @@ public class SoundPropertyReference : MonoBehaviour
 {
     [SerializeField] private float _spacingDistancePerPortion = 1f;
     [SerializeField] private float _secondsPerPortion = 0.5f;
+    [SerializeField] private float _normalTempoHeightOverReferene = 2f;
 
     public float SecondsPerPortion
     {
@@ -28,7 +29,9 @@ public class SoundPropertyReference : MonoBehaviour
     public float GetTempoPercentage(Transform otherTransform)
     {
         var referenceAxis = transform.position.y;
-        var actualAxis = otherTransform.position.y;
-        return Mathf.Abs(referenceAxis - actualAxis);
+        var actualAxis = otherTransform.position.y / _normalTempoHeightOverReferene;
+        var calculatedPitch = actualAxis - referenceAxis;
+
+        return Mathf.Max(0.1f, Mathf.Abs(calculatedPitch));
     }
 }
