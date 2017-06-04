@@ -217,8 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc38804ffae4f4847bd4169a4504c28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GrabSound: {fileID: 8300000, guid: eb62f244fd0e845569c79fcb62800ce5, type: 3}
-  UnGrabSound: {fileID: 8300000, guid: eb62f244fd0e845569c79fcb62800ce5, type: 3}
+  GrabSound: {fileID: 8300000, guid: 312ebfb547a124314814a4cb22fa4f21, type: 3}
+  UnGrabSound: {fileID: 8300000, guid: b8ed9e3922f914940a49ffd60336dac9, type: 3}
   MusicSound: {fileID: 0}
   StartHighlightColor: {r: 0.3897059, g: 0.41784987, b: 0.5, a: 0}
   EndHighlightColor: {r: 0.73664576, g: 0.7822637, b: 0.9191176, a: 0}
