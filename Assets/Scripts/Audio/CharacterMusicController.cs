@@ -74,7 +74,7 @@ public class CharacterMusicController : MonoBehaviour
         var previousSpacingSeconds = _lastPlayingTime;
         _lastPlayingTime = _distanceReference.GetPeriodInSeconds(transform);
         _lastTempo = _distanceReference.GetTempoPercentage(transform);
-        var volumeScale = transform.localScale.x;
+        var volumeScale = transform.localScale.x / _distanceReference.ScalingToVolumeDivisor;
 
         _audioSource.pitch = _lastTempo;
         _audioSource.volume = volumeScale;

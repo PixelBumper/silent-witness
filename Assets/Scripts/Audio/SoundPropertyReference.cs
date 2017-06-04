@@ -5,10 +5,16 @@ public class SoundPropertyReference : MonoBehaviour
     [SerializeField] private float _spacingDistancePerPortion = 1f;
     [SerializeField] private float _secondsPerPortion = 0.5f;
     [SerializeField] private float _normalTempoHeightOverReferene = 2f;
+    [SerializeField] private float _scalingToVolumeDivisor = 2f;
 
     public float SecondsPerPortion
     {
         get { return _secondsPerPortion; }
+    }
+    
+    public float ScalingToVolumeDivisor
+    {
+        get { return _scalingToVolumeDivisor; }
     }
 
     /// <summary>
