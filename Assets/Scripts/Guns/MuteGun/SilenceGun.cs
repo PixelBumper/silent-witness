@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MuteGun : Gun
+public class SilenceGun : Gun
 {
 	[SerializeField] private int _inputMouseButton = 2;
 	
