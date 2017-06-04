@@ -6,7 +6,7 @@ public class CharacterMusicController : MonoBehaviour
 {
     [SerializeField] private AudioClip _music;
 
-    private GameObject _distanceReference;
+    private SoundPropertyReference _distanceReference;
     private AudioSource _audioSource;
     private float _remainingPlayingTime;
     private float _lastPlayingTime;
@@ -18,7 +18,7 @@ public class CharacterMusicController : MonoBehaviour
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
-        _distanceReference = GameObject.FindGameObjectWithTag(Tags.SoundPropertyReference);
+        _distanceReference = GameObject.FindGameObjectWithTag(Tags.SoundPropertyReference).GetComponent<SoundPropertyReference>();
     }
 
     private void Start()
@@ -49,11 +49,9 @@ public class CharacterMusicController : MonoBehaviour
 
     private void UpdateSoundProperties()
     {
-        var referencePosition = _distanceReference.transform.position;
-        var position = transform.position;
         var previousSpacingSeconds = _lastPlayingTime;
-        _lastPlayingTime = GetSpacingDistanceSeconds(referencePosition.x, position.x);
-        _lastTempo = GetPercentageDistance(referencePosition.y, position.y);
+        _lastPlayingTime = _distanceReference.GetSpacingSecondsMultiplier(transform) * _music.length;
+        _lastTempo = _distanceReference.GetTempoPercentage(transform);
         var volumeScale = transform.localScale.x;
 
         _audioSource.pitch = _lastTempo;
@@ -67,18 +65,5 @@ public class CharacterMusicController : MonoBehaviour
 
         _previousPosition = transform.position;
         _previousScale = transform.localScale;
-    }
-
-    private float GetSpacingDistanceSeconds(float referenceAxis, float actualAxis)
-    {
-        var actualDistance = Mathf.Abs(referenceAxis - actualAxis);
-        var adjustedDistance = Mathf.Max((actualDistance - 10f) / 10f + 1f, 0.1f);
-
-        return _music.length * adjustedDistance;
-    }
-
-    private float GetPercentageDistance(float referenceAxis, float actualAxis)
-    {
-        return Mathf.Abs(referenceAxis - actualAxis);
     }
 }
