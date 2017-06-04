@@ -2,6 +2,7 @@
 
 public abstract class Gun : MonoBehaviour
 {
+	[SerializeField] private GunIcon _icon;
 	protected Targeter Targeter;
 
 	protected virtual void Awake()
