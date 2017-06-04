@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 23186304498902946}
   - component: {fileID: 82765673797359166}
   - component: {fileID: 114176012836737570}
-  - component: {fileID: 64591847514073904}
   - component: {fileID: 114044877659477296}
   - component: {fileID: 54314413590637390}
   - component: {fileID: 114972404087126896}
@@ -31,6 +30,7 @@ GameObject:
   - component: {fileID: 114848629216400974}
   - component: {fileID: 114770644710329144}
   - component: {fileID: 82999300467747014}
+  - component: {fileID: 65463828312954530}
   m_Layer: 8
   m_Name: creature_01
   m_TagString: Untagged
@@ -134,8 +134,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64591847514073904
-MeshCollider:
+--- !u!65 &65463828312954530
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -144,10 +144,8 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 1
-  m_SkinWidth: 0.02
-  m_Mesh: {fileID: 4300000, guid: 3b1becd7d7dcb496faf1ea0cbefbbf77, type: 3}
+  m_Size: {x: 0.025514742, y: 0.020914877, z: 0.018858764}
+  m_Center: {x: 0, y: 0.0049000178, z: -4.656612e-10}
 --- !u!82 &82765673797359166
 AudioSource:
   m_ObjectHideFlags: 1
