@@ -28,7 +28,13 @@ public class MovingWalkway : MonoBehaviour
 		_renderer.material.SetTextureOffset("_MainTex", new Vector2(0, _timepassed));
 		if (collider.gameObject.layer == LayerMask.NameToLayer("Character&Monster"))
 		{
-			collider.transform.position += transform.forward * Speed * Time.deltaTime;
+			var rigidbody = collider.GetComponent<Rigidbody>();
+			if (rigidbody != null)
+			{
+				var currentPosition = collider.transform.position;
+				rigidbody.MovePosition(currentPosition + transform.forward * Speed * Time.deltaTime);	
+			}
+			
 		}
 
 	}
