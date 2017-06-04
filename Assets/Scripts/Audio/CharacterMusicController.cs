@@ -17,7 +17,12 @@ public class CharacterMusicController : MonoBehaviour
 
     private float MusicLength
     {
-        get { return _audioSource.clip.length; }
+        get { return Mathf.Ceil(_audioSource.clip.length); }
+    }
+
+    private int MusicTotalPortions
+    {
+        get { return Mathf.CeilToInt(MusicLength / _distanceReference.SecondsPerPortion); }
     }
 
     private void Awake()
@@ -55,7 +60,7 @@ public class CharacterMusicController : MonoBehaviour
     private void UpdateSoundProperties()
     {
         var previousSpacingSeconds = _lastPlayingTime;
-        _lastPlayingTime = _distanceReference.GetSpacingSecondsMultiplier(transform) * MusicLength;
+        _lastPlayingTime = _distanceReference.GetPeriodInSeconds(transform);
         _lastTempo = _distanceReference.GetTempoPercentage(transform);
         var volumeScale = transform.localScale.x;
 
@@ -71,7 +76,7 @@ public class CharacterMusicController : MonoBehaviour
         _previousPosition = transform.position;
         _previousScale = transform.localScale;
     }
-    
+
     public void ToggleMute()
     {
         enabled = !enabled;
