@@ -18,11 +18,11 @@ public class SilenceGun : Gun
 		
 		if (targetedObject != null)
 		{
-			var characterMusicController = targetedObject.GetComponent<CharacterMusicController>();
+			var silencable = targetedObject.GetComponent<ISilencable>();
 
-			if (characterMusicController != null)
+			if (silencable != null)
 			{
-				characterMusicController.ToggleMute();
+				silencable.ToggleSilence();
 			}
 		}
 	}
