@@ -9,21 +9,23 @@ public class Elevator : MonoBehaviour
 
     public float Interval = 1.0f;
 
-
     public AnimationCurve Curve;
+
+    private Rigidbody _rigidbody;
 
     // Use this for initialization
     void Start()
     {
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        var position = transform.position;
+        var position = _rigidbody.position;
         position.y = StartingHeight + Curve.Evaluate(Mathf.PingPong(Time.time, Interval) / Interval) *
                      (StoppingHeight - StartingHeight);
 
-        transform.position = position;
+        _rigidbody.MovePosition(position);
     }
 }
