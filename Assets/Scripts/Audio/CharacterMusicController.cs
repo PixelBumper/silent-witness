@@ -4,10 +4,10 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class CharacterMusicController : MonoBehaviour
 {
-    [SerializeField] private AudioClip _music;
+    [SerializeField, Tooltip("Set clip in the audio source, do not modify this audio source externally!")]
+    private AudioSource _audioSource;
 
     private SoundPropertyReference _distanceReference;
-    private AudioSource _audioSource;
     private float _remainingPlayingTime;
     private float _lastPlayingTime;
     private float _lastTempo;
@@ -15,19 +15,24 @@ public class CharacterMusicController : MonoBehaviour
     private Vector3 _previousPosition;
     private Vector3 _previousScale;
 
+    private float MusicLength
+    {
+        get { return _audioSource.clip.length; }
+    }
+
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
-        _distanceReference = GameObject.FindGameObjectWithTag(Tags.SoundPropertyReference).GetComponent<SoundPropertyReference>();
+        _distanceReference = GameObject.FindGameObjectWithTag(Tags.SoundPropertyReference)
+            .GetComponent<SoundPropertyReference>();
     }
 
     private void Start()
     {
         _audioSource.loop = false;
-        _audioSource.clip = _music;
         _previousPosition = transform.position;
 
-        _remainingPlayingTime = _music.length;
+        _remainingPlayingTime = MusicLength;
         UpdateSoundProperties();
     }
 
@@ -50,7 +55,7 @@ public class CharacterMusicController : MonoBehaviour
     private void UpdateSoundProperties()
     {
         var previousSpacingSeconds = _lastPlayingTime;
-        _lastPlayingTime = _distanceReference.GetSpacingSecondsMultiplier(transform) * _music.length;
+        _lastPlayingTime = _distanceReference.GetSpacingSecondsMultiplier(transform) * MusicLength;
         _lastTempo = _distanceReference.GetTempoPercentage(transform);
         var volumeScale = transform.localScale.x;
 
