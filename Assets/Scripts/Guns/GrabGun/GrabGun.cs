@@ -7,7 +7,7 @@ public class GrabGun : Gun
 	
 	[SerializeField] private float _force = 15;
 	[SerializeField] private float _angularForce = 4;
-	[SerializeField] private float _breakGrabSensibility = 4;
+	[SerializeField] private float _breakGrabSensibility = 1;
 	[SerializeField] private float _releaseMaxVelocity = 2;
 
 	private Grabbable _currentGrabbable;
@@ -107,7 +107,7 @@ public class GrabGun : Gun
 	{
 		if (collision.relativeVelocity.magnitude > _breakGrabSensibility)
 		{
-			Release();	
+//			Release();	
 		}
 	}
 	
