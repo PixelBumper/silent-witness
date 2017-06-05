@@ -61,6 +61,7 @@ public class GrabGun : Gun
 	
 		_currentGrabbable.Rigidbody.useGravity = false;
 		_currentGrabbable.OnGrabbableCollisionEnter += OnGrabbableCollisionEnter;
+		grabbable.GetComponent<MonsterController>().Grab();
 	}
 	
 	private void RotateGrabbedObject()
@@ -123,9 +124,10 @@ public class GrabGun : Gun
 			_currentGrabbable.Rigidbody.velocity = newVelocity;
 			_currentGrabbable.Rigidbody.useGravity = true;
 			_currentGrabbable.OnGrabbableCollisionEnter -= OnGrabbableCollisionEnter;
-		
+			_currentGrabbable.GetComponent<MonsterController>().Ungrab();
+
 			_currentGrabbable = null;
-			
+
 			_attractionPosition.LookAt(transform);
 			_attractionPosition.Rotate(new Vector3(0, 180, 0));
 		}

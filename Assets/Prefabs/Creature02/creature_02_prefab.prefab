@@ -321,9 +321,9 @@ MonoBehaviour:
   _audioSource: {fileID: 82679005329460680}
   GrabSound: {fileID: 8300000, guid: 312ebfb547a124314814a4cb22fa4f21, type: 3}
   UnGrabSound: {fileID: 8300000, guid: b8ed9e3922f914940a49ffd60336dac9, type: 3}
-  StartHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  EndHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  HighlightInterval: 0
+  StartHighlightColor: {r: 0.45882356, g: 0.29803923, b: 0.18823531, a: 0}
+  EndHighlightColor: {r: 0.86764705, g: 0.56437737, b: 0.35726643, a: 0}
+  HighlightInterval: 1
   Curve:
     serializedVersion: 2
     m_Curve: []
