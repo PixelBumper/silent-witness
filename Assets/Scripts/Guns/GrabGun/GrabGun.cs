@@ -34,7 +34,7 @@ public class GrabGun : Gun
 		
 		if (_currentGrabbable)
 		{
-			RotateGrabbedObject();
+//			RotateGrabbedObject();
 		}		
 	}
 
