@@ -17,8 +17,8 @@ public class GameController : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (_character.transform.position.y < -RespawningHeight)
+	void FixedUpdate () {
+		if (_character.transform.position.y < RespawningHeight)
 		{
 			_character.transform.position = SpawningPosition;
 		}
