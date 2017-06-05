@@ -73,13 +73,11 @@ public class MonsterController : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("focussing");
         StartHiglightingAnimation();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("unfocus");
         StopHighlightAnimation();
     }
 }
