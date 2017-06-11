@@ -10,7 +10,7 @@ At the moment it's more of a sandbox, the idea is that one can create/modify giv
 ![game pieces](Binaries/2017-06-11_Preview/Pieces.jpg "Pieces of the game")
 
 ## Controls
-### Keyboard
+### Keyboard/Mouse
  - w, a, s, d to move
  - mouse to look
  - space to jump
@@ -50,6 +50,9 @@ It is currently not possible to switch actions with a controller :( (still a bit
 ## Binaries for Download
  - [Windows](Binaries/2017-06-11_Preview/2017-06-11_PreviewWindows.zip)
  - [WebGL](Binaries/2017-06-11_Preview/2017-06-11_PreviewWeb.zip) (Open with Mozilla Firefox)
+
+## Requirements
+ - Uses Unity 5.6.1f1
 
 # Tips during development
 ## Avoiding merge issues in meta files
