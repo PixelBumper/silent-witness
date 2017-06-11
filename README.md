@@ -51,8 +51,10 @@ It is currently not possible to switch actions with a controller :( (still a bit
  - [Windows](Binaries/2017-06-11_Preview/2017-06-11_PreviewWindows.zip)
  - [WebGL](Binaries/2017-06-11_Preview/2017-06-11_PreviewWeb.zip) (Open with Mozilla Firefox)
 
-## Requirements
- - Uses Unity 5.6.1f1
+## Software used
+ - [Unity 5.6.1f1](https://unity3d.com/) as game engine
+ - [Audacity](http://www.audacityteam.org/) for sound editing
+ - [Blender](https://www.blender.org/) for modelling
 
 # Tips during development
 ## Avoiding merge issues in meta files
