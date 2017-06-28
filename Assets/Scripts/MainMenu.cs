@@ -1,16 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class MainMenu : MonoBehaviour {
-	private void Start()
-	{
-		
-	
-	}
+public class MainMenu : MonoBehaviour
+{
+    public void StartGame()
+    {
+        MainController.SwitchScene("1_GrabGun");
+    }
 
-	public void StartGame()
-	{
-		MainController.SwitchScene("GameScene");
-	}
+    public void FreeGame()
+    {
+        MainController.SwitchScene("GameScene");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
